@@ -63,7 +63,7 @@ export default function HeroCarousel({ slides, featureItems }: HeroCarouselProps
               Browse Containers
             </Button>
             <Button
-              href="/inspection"
+              href="/checkout"
               variant="outline"
               icon="/icons/inspect.png"
               iconAlt=""

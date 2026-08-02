@@ -1,5 +1,6 @@
-import ProductCard, { Product } from "@/components/ProductCard";
+import ProductCard from "@/components/ProductCard";
 import Button from "@/components/ui/Button";
+import { Product } from "@/lib/data";
 
 interface ProductGridProps {
   products: Product[];
