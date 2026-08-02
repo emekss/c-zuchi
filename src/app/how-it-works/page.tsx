@@ -1,8 +1,7 @@
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import PageBottomSections from "@/components/PageBottomSections";
-import PageHero from "@/components/PageHero";
-import FeatureStrip from "@/components/FeatureStrip";
+import PageHeroWithFeatures from "@/components/PageHeroWithFeatures";
 import { howItWorksSteps } from "@/lib/data";
 
 export default function HowItWorksPage() {
@@ -10,12 +9,10 @@ export default function HowItWorksPage() {
     <>
       <Navbar activePath="/how-it-works" />
       <main>
-        <section className="relative">
-          <PageHero title="How It Works" className="pb-16" />
-          <FeatureStrip items={howItWorksSteps} />
-        </section>
-        <div className="h-20 bg-white" />
-        <PageBottomSections />
+        <PageHeroWithFeatures title="How It Works" featureItems={howItWorksSteps} />
+        <div className="bg-white pt-28 sm:pt-32 lg:pt-36">
+          <PageBottomSections />
+        </div>
       </main>
       <Footer />
     </>
