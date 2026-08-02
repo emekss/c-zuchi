@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import Carousel from "@/components/shared/Carousel";
+import PageHero from "@/components/PageHero";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
-import { heroSlides, testimonials } from "@/lib/data";
+import { testimonials } from "@/lib/data";
 
 interface AuthLayoutProps {
   title: string;
@@ -25,21 +25,7 @@ export default function AuthLayout({
 }: AuthLayoutProps) {
   return (
     <>
-      <section className="relative">
-        <Carousel
-          slides={heroSlides}
-          interval={6000}
-          className="min-h-[280px] sm:min-h-[320px]"
-          overlayClassName="bg-gradient-to-br from-navy/90 via-navy/60 to-navy/30"
-          dotClassName="bottom-6"
-        >
-          <div className="relative z-10 flex min-h-[280px] flex-col items-center justify-center px-4 pb-12 pt-28 text-center sm:min-h-[320px]">
-            <h1 className="max-w-3xl text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
-              {title}
-            </h1>
-          </div>
-        </Carousel>
-      </section>
+      <PageHero title={title} showSubtitle={false} />
 
       <section className="bg-navy py-12 sm:py-16">
         <div className="mx-auto w-full max-w-xl px-4 sm:px-6">

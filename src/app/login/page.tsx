@@ -28,7 +28,7 @@ export default function LoginPage() {
   return (
     <>
       <Navbar activePath="/login" />
-      <main className="pt-[72px]">
+      <main>
         <AuthLayout
           title="Already Have An Account? Log In"
           footerText="Don't have an account?"

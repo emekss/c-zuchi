@@ -16,8 +16,8 @@ export default function ContainerDetailPage() {
   return (
     <>
       <Navbar activePath="/browse" />
-      <main className="pt-[72px]">
-        <PageHero title="Shipping Containers" />
+      <main>
+        <PageHero title="Shipping Containers" showSubtitle={false} />
         <BreadcrumbBar
           items={[
             { label: "Home", href: "/" },

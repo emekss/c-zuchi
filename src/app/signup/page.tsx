@@ -31,7 +31,7 @@ export default function SignupPage() {
   return (
     <>
       <Navbar activePath="/signup" />
-      <main className="pt-[72px]">
+      <main>
         <AuthLayout
           title="Don't Have An Account? Sign Up."
           footerText="Already have an account?"

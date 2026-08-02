@@ -8,8 +8,8 @@ export default function PrivacyPage() {
   return (
     <>
       <Navbar activePath="/privacy" />
-      <main className="pt-[72px]">
-        <PageHero title="Privacy Policy" />
+      <main>
+        <PageHero title="Privacy Policy" showSubtitle={false} />
         <section className="bg-gray-50 py-16 sm:py-20">
           <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-10">
             <Accordion items={privacySections} />
