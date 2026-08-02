@@ -14,52 +14,59 @@ export default function Footer() {
   return (
     <footer className="bg-navy text-white">
       <div className="mx-auto max-w-wide px-4 py-12 sm:px-6 lg:px-10 lg:py-14">
-        <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
-          <Link href="/" className="shrink-0">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:grid-rows-[auto_auto] lg:items-center lg:gap-x-8 lg:gap-y-10">
+          <Link href="/" className="justify-self-start lg:row-start-1">
             <Image
               src="/icons/logo.png"
               alt="C-ZUCHI Global Service LTD"
               width={160}
               height={40}
-              className="h-9 w-auto"
+              className="h-9 w-auto sm:h-10"
             />
           </Link>
 
-          <nav className="flex flex-wrap items-center gap-x-6 gap-y-3">
+          <nav className="flex flex-wrap items-center justify-start gap-x-5 gap-y-2 sm:gap-x-6 lg:col-start-2 lg:row-start-1 lg:justify-center">
             {footerLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm text-white/75 transition-colors hover:text-white"
+                className="text-sm text-white transition-colors hover:text-white/80"
               >
                 {link.label}
               </Link>
             ))}
           </nav>
 
-          <Button href="/contact" className="w-full shrink-0 sm:w-auto">
-            Contact Us
-          </Button>
-        </div>
+          <div className="lg:col-start-3 lg:row-start-1 lg:justify-self-end">
+            <Button href="/contact" className="w-full px-6 py-2.5 sm:w-auto">
+              Contact Us
+            </Button>
+          </div>
 
-        <div className="mt-10 flex flex-col gap-6 border-t border-white/10 pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-sm text-white/60">
+          <p className="hidden text-sm text-white/70 lg:col-start-1 lg:row-start-2 lg:block">
             © C-ZUCHI Global Service LTD 2026
           </p>
 
-          <div className="flex items-center gap-3">
-            {socialLinks.map(({ label, href, icon }) => (
-              <a
-                key={label}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={label}
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/5 transition-colors hover:bg-primary"
-              >
-                <Image src={icon} alt="" width={16} height={16} className="h-4 w-4" />
-              </a>
-            ))}
+          <div className="hidden lg:col-start-2 lg:row-start-2 lg:block" aria-hidden />
+
+          <div className="flex items-center justify-between gap-5 lg:col-start-3 lg:row-start-2 lg:justify-self-end">
+            <p className="text-sm text-white/70 lg:hidden">
+              © C-ZUCHI Global Service LTD 2026
+            </p>
+            <div className="flex items-center gap-5">
+              {socialLinks.map(({ label, href, icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className="opacity-90 transition-opacity hover:opacity-100"
+                >
+                  <Image src={icon} alt="" width={18} height={18} className="h-[18px] w-[18px]" />
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </div>
