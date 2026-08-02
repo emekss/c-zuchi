@@ -6,7 +6,7 @@ import TestimonialCarousel from "@/components/TestimonialCarousel";
 import { testimonials } from "@/lib/data";
 
 interface AuthLayoutProps {
-  title: string;
+  title: React.ReactNode;
   children: React.ReactNode;
   footerText: string;
   footerLinkText: string;
@@ -25,7 +25,7 @@ export default function AuthLayout({
 }: AuthLayoutProps) {
   return (
     <>
-      <PageHero title={title} showSubtitle={false} />
+      <PageHero title={title} showSubtitle={false} variant="auth" />
 
       <section className="bg-navy py-12 sm:py-16">
         <div className="mx-auto w-full max-w-xl px-4 sm:px-6">

@@ -23,6 +23,8 @@ interface CarouselProps {
   inactiveDotClassName?: string;
   onSlideChange?: (index: number) => void;
   hideBackground?: boolean;
+  controlledIndex?: number;
+  onControlledIndexChange?: (index: number) => void;
 }
 
 export default function Carousel({
@@ -38,33 +40,37 @@ export default function Carousel({
   inactiveDotClassName,
   onSlideChange,
   hideBackground = false,
+  controlledIndex,
+  onControlledIndexChange,
 }: CarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
-  const activeIndex = currentIndex;
+  const isControlled = controlledIndex !== undefined;
+  const activeIndex = isControlled ? controlledIndex : currentIndex;
 
   const goToSlide = useCallback(
     (index: number) => {
-      setCurrentIndex(index);
+      if (isControlled) {
+        onControlledIndexChange?.(index);
+      } else {
+        setCurrentIndex(index);
+      }
       onSlideChange?.(index);
     },
-    [onSlideChange]
+    [isControlled, onControlledIndexChange, onSlideChange]
   );
 
   useEffect(() => {
     if (isPaused || slides.length <= 1) return;
 
     const timer = setInterval(() => {
-      setCurrentIndex((prev) => {
-        const next = (prev + 1) % slides.length;
-        onSlideChange?.(next);
-        return next;
-      });
+      const next = (activeIndex + 1) % slides.length;
+      goToSlide(next);
     }, interval);
 
     return () => clearInterval(timer);
-  }, [interval, isPaused, slides.length, onSlideChange]);
+  }, [interval, isPaused, slides.length, activeIndex, goToSlide]);
 
   return (
     <div
